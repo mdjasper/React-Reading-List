@@ -5,30 +5,13 @@ import isBrowser from 'is-in-browser';
 import {ALLOW_REDUX_DEV_TOOLS} from './env.js';
 
 import system, * as fromSystem from './reducers/system.js';
-import nav, * as fromSiteNav from './reducers/site-nav.js';
 
 // create the master reducer
 const rootReducer = combineReducers({nav, system});
 
-
-// Reexport scoped selectors here:
-export const selectSiteNav = (state) => (
-    fromSiteNav.selectSiteNav(state.nav)
-);
-
 export const selectHTTPResponseCode = (state) => (
     fromSystem.selectHTTPResponseCode(state.system)
 );
-
-export const selectAllApplicationErrors = (state) => (
-    fromSystem.selectAllApplicationErrors(state.system)
-);
-
-export const selectApplicationError = (state, id) => (
-    fromSystem.selectApplicationError(state.system, id)
-);
-
-
 
 // determine initial state
 const initialState = isBrowser && window.__INITIAL_STATE__ || {};
