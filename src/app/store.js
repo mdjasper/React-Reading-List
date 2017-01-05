@@ -1,13 +1,15 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import isBrowser from 'is-in-browser';
+import readingList from './reducers/readingList.js';
+import greeting from './reducers/greeting.js';
 
 import {ALLOW_REDUX_DEV_TOOLS} from './env.js';
 
 import system, * as fromSystem from './reducers/system.js';
 
 // create the master reducer
-const rootReducer = combineReducers({system});
+const rootReducer = combineReducers({readingList, system, greeting});
 
 export const selectHTTPResponseCode = (state) => (
     fromSystem.selectHTTPResponseCode(state.system)

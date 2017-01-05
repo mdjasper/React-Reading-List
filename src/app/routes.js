@@ -6,7 +6,7 @@ import {APP_WEB_BASE_PATH} from './env.js';
 const routes = (
     <Route path={`${APP_WEB_BASE_PATH||'/'}`} component={App} >
         <IndexRoute component={Home} />
-        <Route path="*" component={Home} />
+        <Route path="/:name" component={Home} />
     </Route>
 );
 

@@ -1,9 +1,9 @@
-const Home = () => (
+import Greeting from '../Greeting';
+
+const Home = ({greet = true, greetingAction, name = "World"}) => (
     <div>
-        <h1>Welcome Home</h1>
+        {greet ? <Greeting name={name} close={greetingAction} /> : null}
     </div>
 );
-
-
 
 export default Home;
