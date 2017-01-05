@@ -2,10 +2,14 @@ import Home from '../components/Home';
 import { connect } from 'react-redux';
 import { addMeta } from '../hocs/add-meta';
 import hideGreeting from '../actions/greeting.js';
+import { getRecommendations } from '../actions/recommendations.js';
+import mountLoad from '../hocs/mount-load';
 
-const metaHome = addMeta(Home);
+const LazyHome = mountLoad(Home);
 
-const mapStateToProps = ({greeting, params}, ownProps) => ({
+const metaHome = addMeta(LazyHome);
+
+const mapStateToProps = ({greeting, params, recommendations}, ownProps) => ({
     meta: {
         title: "Homepage, yo!",
         tags: [
@@ -14,11 +18,13 @@ const mapStateToProps = ({greeting, params}, ownProps) => ({
         ]
     },
     greet: greeting.visible,
-    name: ownProps.params.name
+    name: ownProps.params.name,
+    recommendations
 });
 
 const bindActionsToDispatch = (dispatch) => ({
-    greetingAction: ()=>{dispatch(hideGreeting())}
+    greetingAction: ()=>{dispatch(hideGreeting())},
+    onLoad: () => dispatch( getRecommendations() )
 });
 
 const mergeAllProps = (state, actions, own) => ({
