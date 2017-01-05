@@ -7,7 +7,7 @@ import {ALLOW_REDUX_DEV_TOOLS} from './env.js';
 import system, * as fromSystem from './reducers/system.js';
 
 // create the master reducer
-const rootReducer = combineReducers({nav, system});
+const rootReducer = combineReducers({system});
 
 export const selectHTTPResponseCode = (state) => (
     fromSystem.selectHTTPResponseCode(state.system)
