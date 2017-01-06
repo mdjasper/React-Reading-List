@@ -1,11 +1,11 @@
 import Greeting from '../Greeting';
-import Recommendation from "../Recommendation";
+import Recommendations from "../Recommendations";
 
 const Home = ({greet = true, greetingAction, name = "World", recommendations}) => (
     <div>
         {greet ? <Greeting name={name} close={greetingAction} /> : null}
 
-        <Recommendation books={recommendations} />
+        <Recommendations books={recommendations} />
 
     </div>
 );

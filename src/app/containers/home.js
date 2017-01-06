@@ -11,9 +11,9 @@ const metaHome = addMeta(LazyHome);
 
 const mapStateToProps = ({greeting, params, recommendations}, ownProps) => ({
     meta: {
-        title: "Homepage, yo!",
+        title: "React Reading List",
         tags: [
-            {"name": "description", "content": "A React Starter"},
+            {"name": "description", "content": "A demo app for the react stack"},
             {"property": "og:type", "content": "article"}
         ]
     },
@@ -27,7 +27,7 @@ const bindActionsToDispatch = (dispatch) => ({
     onLoad: () => dispatch( getRecommendations() )
 });
 
-const mergeAllProps = (state, actions, own) => ({
+const mergeAllProps = (state, actions) => ({
   ...state, ...actions
 });
 
