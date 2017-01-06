@@ -6,9 +6,5 @@ export const initRecommendations = recommendations => ({
     recommendations
 });
 
-export const getRecommendations = () => dispatch => {
-    fetchRecommendations()
-    .then(res=>{ 
-        dispatch(initRecommendations(res)); 
-    })
-};
+export const getRecommendations = () => dispatch => fetchRecommendations().then(res=>dispatch(initRecommendations(res)));
+
