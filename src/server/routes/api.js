@@ -3,7 +3,7 @@ import cors from 'cors';
 
 export const router = express.Router();
 
-const {APP_WEB_BASE_PATH} = process.env;
+//const {APP_WEB_BASE_PATH} = process.env;
 
 router.get('/recommendations', cors(), (req, res) => {
     res.send([{

@@ -1,13 +1,9 @@
+import { Component } from 'react';
+import Helmet from 'react-helmet';
 import Home from '../components/Home';
 import { connect } from 'react-redux';
-import { addMeta } from '../hocs/add-meta';
 import hideGreeting from '../actions/greeting.js';
 import { getRecommendations } from '../actions/recommendations.js';
-import mountLoad from '../hocs/mount-load';
-
-const LazyHome = mountLoad(Home);
-
-const metaHome = addMeta(LazyHome);
 
 const mapStateToProps = ({greeting, params, recommendations}, ownProps) => ({
     meta: {
@@ -31,5 +27,32 @@ const mergeAllProps = (state, actions) => ({
   ...state, ...actions
 });
 
+class HomeContainer extends Component {
 
-export default connect(mapStateToProps, bindActionsToDispatch, mergeAllProps)(metaHome);
+    static onServer(props, store){
+        return store.dispatch(getRecommendations());
+    }
+
+    componentDidMount(){
+        const { onLoad } = this.props;
+        if(onLoad) {
+            return onLoad();
+        }
+    }
+
+    render(){
+        return (
+            <div>
+                <Helmet { ...this.props.meta }/>
+                {
+                    this.props.recommendations.length > 0
+                    ? <Home { ...this.props } />
+                    : <h1>Loading</h1>
+                }
+
+            </div>
+        )
+    }
+}
+
+export default connect(mapStateToProps, bindActionsToDispatch, mergeAllProps)(HomeContainer);
