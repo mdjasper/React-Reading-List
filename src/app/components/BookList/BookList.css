@@ -1,0 +1,15 @@
+.bookList {
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 0 1em .5em .3em;
+}
+
+.listTitle {
+    font-weight: normal;
+}
+
+.alternating {
+    & > *:nth-child(2n-1) {
+        background-color: #E8F1F5;
+    }
+}
