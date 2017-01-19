@@ -12,9 +12,9 @@ const Home = ({greet = true, greetingAction, name = "World", recommendations, re
         <BookSearch onSearch={onSearch} />
         <BookList zebra title="Reading List">
                 {
-                    readingList.map((book) =>
+                    readingList.map((book, i) =>
                         <BookTile
-                            key={book.id}
+                            key={i}
                             author={book.author}
                             title={book.volumeInfo.title}
                             id={book.id}

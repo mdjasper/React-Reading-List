@@ -38,7 +38,6 @@ export const normalize = (book) => {
 };
 
 export const getAuthor = (volumeInfo) => {
-    console.log('bc: volumeInfo', volumeInfo);
     return volumeInfo.authors
               ? volumeInfo.authors[0]
               : volumeInfo.publisher
