@@ -12,30 +12,52 @@ export const search = (query) => dispatch => {
         res => {
             try {
                 // grab the first query result, normalize it, then dispatch it as an add book action.
-                dispatch(addBook(normalize(res.items[0])))
+                dispatch(addBook(normalize(res.items[0])));
             } catch (e){
                 // TODO handle this properly - dispatch an action that shows the user a message about the failure
-                console.log("book query failed");
+                console.log('search response was: ', res);
+                console.log('failed to dispatch book', e);
             }
         }
     )
 };
 
 // isolate the ISBN and thumbnail URL
-export const normalize = (book) => ({
-    thumbnailUrl: getThumbnailUrl(book.volumeInfo.imageLinks),
-    isbn: getIsbn(book.volumeInfo.industryIdentifiers) || book.id,
-    ...book
-});
+export const normalize = (book) => {
+    try {
+        return {
+            author: getAuthor(book.volumeInfo),
+            isbn: getIsbn(book.volumeInfo.industryIdentifiers) || book.id,
+            thumbnailUrl: getThumbnailUrl(book.volumeInfo.imageLinks),
+            ...book
+        }
+    } catch (e) {
+        console.log('failed to normalize book: ', book);
+        throw e; // pass the error up the chain
+    }
+};
+
+export const getAuthor = (volumeInfo) => {
+    console.log('bc: volumeInfo', volumeInfo);
+    return volumeInfo.authors
+              ? volumeInfo.authors[0]
+              : volumeInfo.publisher
+                    ? volumeInfo.publisher
+                    : "unknown author"
+}
 
 export const getIsbn = (identifiers) => {
     if (!identifiers) return undefined;
     const isbn13 = identifiers.filter( (i) => i.type === "ISBN_13" );
     const isbn10 = identifiers.filter( (i) => i.type === "ISBN_10" );
-    return isbn13 ? isbn13[0].identifier : ( isbn10 ? isbn10[0].identifier : undefined);
+    const other = identifiers[0]; // when all else fails
+    return isbn13.length > 0 ? isbn13[0].identifier
+                  : ( isbn10.length > 0 ? isbn10[0].identifier
+                             : (other ? other.identifier
+                                      : undefined));
 }
 
 export const getThumbnailUrl = (imageLinks) => {
     if (!imageLinks) return undefined;
-    return imageLinks.thumbnail || imageLinks.smallThumbnail;
+    return imageLinks.smallThumbnail || imageLinks.thumbnail;
 }
