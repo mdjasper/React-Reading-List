@@ -4,5 +4,6 @@ import isBrowser from 'is-in-browser';
 export const {
     APP_WEB_BASE_PATH,
     API_HOST,
-    ALLOW_REDUX_DEV_TOOLS
+    ALLOW_REDUX_DEV_TOOLS,
+    GOOGLE_BOOKS_API
 } = isBrowser ? window.__APP_ENV_VARS__ : process.env;

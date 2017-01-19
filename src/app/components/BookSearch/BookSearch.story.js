@@ -1,7 +1,9 @@
-import { storiesOf } from '@kadira/storybook'
-import BookSearch from './BookSearch.js'
+import { storiesOf, action } from '@kadira/storybook'
+import { BookSearch } from './BookSearch.js'
 
 storiesOf('BookSearch')
     .add('default', () => (
-        <BookSearch />
+        <BookSearch onSearch={action('hello from bruce')} />
     ))
+//onSearch={action('bruce')}
+//<BookSearch onSearch={() => console.log('hello from bruce')} />

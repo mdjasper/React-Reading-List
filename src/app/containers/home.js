@@ -3,9 +3,10 @@ import Helmet from 'react-helmet';
 import Home from '../components/Home';
 import { connect } from 'react-redux';
 import hideGreeting from '../actions/greeting.js';
+import { search } from '../actions/bookSearch.js';
 import { getRecommendations } from '../actions/recommendations.js';
 
-const mapStateToProps = ({greeting, params, recommendations}, ownProps) => ({
+const mapStateToProps = ({greeting, params, recommendations, readingList}, ownProps) => ({
     meta: {
         title: "React Reading List",
         tags: [
@@ -15,12 +16,14 @@ const mapStateToProps = ({greeting, params, recommendations}, ownProps) => ({
     },
     greet: greeting.visible,
     name: ownProps.params.name,
-    recommendations
+    recommendations,
+    readingList
 });
 
 const bindActionsToDispatch = (dispatch) => ({
-    greetingAction: ()=>{dispatch(hideGreeting())},
-    onLoad: () => dispatch( getRecommendations() )
+    greetingAction: () => dispatch(hideGreeting()),
+    onLoad: () => dispatch(getRecommendations()),
+    onSearch: (q) => dispatch(search(q))
 });
 
 const mergeAllProps = (state, actions) => ({
