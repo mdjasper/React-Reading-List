@@ -11,6 +11,6 @@ export default ({
         <h3>{title}</h3>
         <h4>{author}</h4>
         {remove && <button onClick={remove}>delete</button>}
-        {markRead && <button onClick={ markRead }>finished</button>}
+        {markRead && <button onClick={markRead}>finished</button>}
     </div>
 )

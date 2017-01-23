@@ -10,7 +10,8 @@ const Home = ({
     name = "World",
     recommendations,
     readingList,
-    onSearch
+    onSearch,
+    removeBook
 }) => (
     <div>
         {greet ? <Greeting name={name} close={greetingAction} /> : ""}
@@ -26,6 +27,7 @@ const Home = ({
                             title={book.volumeInfo.title}
                             id={book.id}
                             coverImgUrl={book.thumbnailUrl}
+                            remove={() => removeBook(book.id)}
                         />
                     )
                 }

@@ -16,7 +16,9 @@ const books = (state = {}, action) => {
                 }
             }
         case REMOVE_BOOK:
-            return delete (Object.assign({}, state))[action.id]
+            var copy = Object.assign({}, state);
+            delete (copy)[action.id];
+            return copy;
         default:
             return state;
     }

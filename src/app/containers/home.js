@@ -3,7 +3,7 @@ import Helmet from 'react-helmet';
 import Home from '../components/Home';
 import { connect } from 'react-redux';
 import hideGreeting from '../actions/greeting.js';
-import { search } from '../actions/bookSearch.js';
+import { search, removeBook } from '../actions/bookSearch.js';
 import { getRecommendations } from '../actions/recommendations.js';
 import { selectOrderedBooks } from '../store';
 
@@ -17,7 +17,8 @@ const mapStateToProps = (state, ownProps) => ({
 const bindActionsToDispatch = (dispatch) => ({
     greetingAction: () => dispatch(hideGreeting()),
     onLoad: () => dispatch(getRecommendations()),
-    onSearch: (q) => dispatch(search(q))
+    onSearch: (q) => dispatch(search(q)),
+    removeBook: (id) => dispatch(removeBook(id))
 });
 
 const mergeAllProps = (state, actions) => ({
