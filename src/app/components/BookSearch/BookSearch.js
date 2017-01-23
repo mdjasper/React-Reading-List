@@ -3,11 +3,11 @@ import React from 'react';
 export class BookSearch extends React.Component {
     constructor(props) {
         super(props);
-        this.click = this.click.bind(this);
+        this.addBook = this.addBook.bind(this);
         this.handleEnter = this.handleEnter.bind(this);
     }
 
-    click(){
+    addBook(){
         if (this.searchInput.value) {
             this.props.onSearch(this.searchInput.value);
             this.searchInput.value = '';
@@ -16,7 +16,7 @@ export class BookSearch extends React.Component {
 
     handleEnter(event) {
         if(event.keyCode === 13) { // Enter key
-            this.click();
+            this.addBook();
         }
     }
 
@@ -29,18 +29,10 @@ export class BookSearch extends React.Component {
                     defaultValue="Cat in the Hat"
                     onKeyDown={this.handleEnter}
                 />
-                <button onClick={this.click}>Add</button>
+                <button onClick={this.addBook}>Add</button>
             </span>
         )
     }
 }
 
 export default BookSearch;
-
-
-/*
-    Another Enter key solution...
-    componentWillMount() {
-        this.searchInput.removeEventListener('keydown', this.handleEnter);
-    }
-*/
