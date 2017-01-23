@@ -5,12 +5,16 @@ import { connect } from 'react-redux';
 import hideGreeting from '../actions/greeting.js';
 import { search, removeBook } from '../actions/bookSearch.js';
 import { getRecommendations } from '../actions/recommendations.js';
-import { selectOrderedBooks } from '../store';
+import {
+    selectOrderedBooks,
+    selectGreetingVisible,
+    selectRecommendations
+} from '../store';
 
 const mapStateToProps = (state, ownProps) => ({
-    greet: state.greeting.visible,
     name: ownProps.params.name,
-    recommendations: state.recommendations,
+    greet: selectGreetingVisible(state),
+    recommendations: selectRecommendations(state),
     readingList: normalizeBooks(selectOrderedBooks(state))
 });
 
@@ -64,6 +68,7 @@ class HomeContainer extends Component {
 export default connect(mapStateToProps, bindActionsToDispatch, mergeAllProps)(HomeContainer);
 
 
+// Tweak the data for easier display
 export const normalizeBooks = (books) => {
     return books.map( (book) => ({
         author: normalizeAuthor(book.volumeInfo),

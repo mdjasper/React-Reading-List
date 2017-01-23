@@ -2,8 +2,8 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import isBrowser from 'is-in-browser';
 import readingList, * as fromReadingList from './reducers/readingList.js';
-import greeting from './reducers/greeting.js';
-import recommendations from './reducers/recommendations.js';
+import greeting, * as fromGreeting from './reducers/greeting.js';
+import recommendations, * as fromRecommendations from './reducers/recommendations.js';
 
 import {ALLOW_REDUX_DEV_TOOLS} from './env.js';
 
@@ -31,3 +31,9 @@ export default () => createStore( rootReducer, initialState, reduxMiddleware );
 // selectors
 export const selectOrderedBooks = state =>
     fromReadingList.selectOrderedBooks(state.readingList);
+
+export const selectGreetingVisible = state =>
+    fromGreeting.selectVisible(state.greeting);
+
+export const selectRecommendations = state =>
+    fromRecommendations.selectRecommendations(state.recommendations);
