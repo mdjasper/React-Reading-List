@@ -5,7 +5,7 @@ import BookList from "../BookList";
 import BookTile from "../BookTile";
 
 const Home = ({
-    greet = true,
+    greet,
     greetingAction,
     name = "World",
     recommendations,

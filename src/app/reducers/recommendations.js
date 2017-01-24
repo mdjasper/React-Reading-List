@@ -11,4 +11,4 @@ export default (state = [], action) => {
 }
 
 // selectors
-export const selectRecommendations = (state) => {return state};
+export const selectRecommendations = (state) => state;

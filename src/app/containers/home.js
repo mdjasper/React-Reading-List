@@ -56,10 +56,9 @@ class HomeContainer extends Component {
                 <Helmet { ...this.props.meta }/>
                 {
                     this.props.recommendations.length > 0
-                    ? <Home { ...this.props } />
-                    : <h1>Loading</h1>
+                        ? <Home { ...this.props } />
+                        : <h1>Loading</h1>
                 }
-
             </div>
         )
     }

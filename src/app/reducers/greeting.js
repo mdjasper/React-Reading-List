@@ -1,14 +1,14 @@
 export const HIDE_GREETING = "HIDE_GREETING";
 
 // reducer
-export default (state, action) => {
+export default (state = {visible: true}, action) => {
     switch (action.type){
         case HIDE_GREETING:
             return { visible: false };
         default:
-            return { visible: true };
+            return state;
     }
 }
 
 // selectors
-export const selectVisible = ({visible}) => {return visible};
+export const selectVisible = ({visible}) => visible;
