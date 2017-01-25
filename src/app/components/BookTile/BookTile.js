@@ -1,3 +1,5 @@
+import styles from './BookTile.css';
+
 export default ({
     id,
     title,
@@ -6,11 +8,17 @@ export default ({
     remove,
     markRead
 }) => (
-    <div data-google-book-id={id}>
-        <img src={coverImgUrl} />
-        <h3>{title}</h3>
-        <h4>{author}</h4>
-        {remove && <button onClick={remove}>delete</button>}
-        {markRead && <button onClick={markRead}>finished</button>}
+    <div className={styles.BookTile} data-google-book-id={id}>
+        <div className={styles.ImageWrapper}>
+            <img src={coverImgUrl} />
+        </div>
+        <div className={styles.DetailWrapper}>
+            <h3 className={styles.Title}>{title}</h3>
+            <h4 className={styles.Author}>{author}</h4>
+            <div className={styles.ButtonWrapper}>
+                {remove && <button onClick={remove}>delete</button>}
+                {markRead && <button onClick={markRead}>finished</button>}
+            </div>
+        </div>
     </div>
 )

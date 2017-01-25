@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './BookSearch.css';
 
 export class BookSearch extends React.Component {
     constructor(props) {
@@ -22,15 +23,22 @@ export class BookSearch extends React.Component {
 
     render() {
         return(
-            <span>
-                Add book by title or ISBN
-                <input type="text"
-                    ref={input => this.searchInput = input}
-                    defaultValue="Cat in the Hat"
-                    onKeyDown={this.handleEnter}
-                />
-                <button onClick={this.addBook}>Add</button>
-            </span>
+            <div className={styles.BookSearch}>
+                <span className={styles.Label}>
+                    Add book by title or ISBN
+                </span>
+                <span className={styles.InputWrapper}>
+                    <input type="text"
+                        ref={input => this.searchInput = input}
+                        defaultValue="Cat in the Hat"
+                        onKeyDown={this.handleEnter}
+                    />
+                    <button
+                        className={styles.AddButton}
+                        onClick={this.addBook}>Add
+                    </button>
+                </span>
+            </div>
         )
     }
 }

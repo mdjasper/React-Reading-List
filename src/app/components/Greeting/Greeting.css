@@ -1,0 +1,14 @@
+@import '../../variables.css';
+
+.greeting {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--lightgrey, LightGrey);
+    padding: 0 .5em;
+}
+
+.deleteButton {
+    height: 2em;
+    margin: .5em;
+    cursor: pointer;
+}

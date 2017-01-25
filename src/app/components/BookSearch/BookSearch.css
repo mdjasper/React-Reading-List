@@ -1,0 +1,22 @@
+@import '../../variables.css';
+
+.BookSearch {
+    background-color: var(--lightgrey, LightGrey);
+    padding: .5em;
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: row wrap;
+    align-items: center;
+}
+
+.Label {
+
+}
+
+.InputWrapper {
+    margin: 0 .25em;
+}
+
+.AddButton {
+
+}

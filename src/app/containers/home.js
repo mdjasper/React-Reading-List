@@ -68,22 +68,21 @@ export default connect(mapStateToProps, bindActionsToDispatch, mergeAllProps)(Ho
 
 
 // Tweak the data for easier display
-export const normalizeBooks = (books) => {
-    return books.map( (book) => ({
+export const normalizeBooks = (books) =>
+    books.map( (book) => ({
         author: normalizeAuthor(book.volumeInfo),
         isbn: normalizeIsbn(book.volumeInfo.industryIdentifiers) || book.id,
         thumbnailUrl: normalizeThumbnailUrl(book.volumeInfo.imageLinks),
         ...book
-    }));
-}
+}));
 
-export const normalizeAuthor = (volumeInfo) => {
-    return volumeInfo.authors
-              ? volumeInfo.authors[0]
-              : volumeInfo.publisher
-                    ? volumeInfo.publisher
-                    : "unknown author"
-}
+export const normalizeAuthor = (volumeInfo) =>
+    volumeInfo.authors
+        ? volumeInfo.authors[0]
+        : volumeInfo.publisher
+            ? volumeInfo.publisher
+            : "unknown author"
+;
 
 export const normalizeIsbn = (identifiers) => {
     if (!identifiers) return undefined;
@@ -91,12 +90,14 @@ export const normalizeIsbn = (identifiers) => {
     const isbn10 = identifiers.filter( (i) => i.type === "ISBN_10" );
     const other = identifiers[0]; // when all else fails
     return isbn13.length > 0 ? isbn13[0].identifier
-                  : ( isbn10.length > 0 ? isbn10[0].identifier
-                             : (other ? other.identifier
-                                      : undefined));
+          : ( isbn10.length > 0 ? isbn10[0].identifier
+                     : (other ? other.identifier
+                              : undefined));
 }
 
 export const normalizeThumbnailUrl = (imageLinks) => {
-    if (!imageLinks) return undefined;
+    if (!imageLinks) {
+        return undefined;
+    }
     return imageLinks.smallThumbnail || imageLinks.thumbnail;
 }

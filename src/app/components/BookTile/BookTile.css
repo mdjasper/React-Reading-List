@@ -1,0 +1,30 @@
+.BookTile {
+    display: flex;
+    align-items: flex-start;
+    flex-flow: row wrap;
+    margin: .5em;
+    /*min-height: 10rem;*/
+}
+
+.DetailWrapper {
+    margin: 0 1em;
+    padding: .5em;
+}
+
+.Title {
+    font-size: 1.75rem;
+    margin-top: .25rem;
+    margin-bottom: .25rem;
+}
+
+.Author {
+    margin-top: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.ImageWrapper {
+    width: 8rem;
+    overflow: hidden;
+}
+
+.ButtonWrapper {}
