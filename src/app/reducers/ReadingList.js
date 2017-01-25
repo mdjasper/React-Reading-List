@@ -27,6 +27,9 @@ const books = (state = {}, action) => {
 const order = (state = [], action) => {
     switch(action.type) {
         case ADD_BOOK:
+            if (state.includes(action.book.id)) {
+                return state; // no duplicates allowed
+            }
             return [
                 action.book.id,
                 ... state
