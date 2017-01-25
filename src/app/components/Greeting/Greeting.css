@@ -3,7 +3,7 @@
 .greeting {
     display: flex;
     justify-content: space-between;
-    background-color: var(--lightgrey, LightGrey);
+    background-color: var(--lightgray, #ddd);
     padding: 0 .5em;
 }
 

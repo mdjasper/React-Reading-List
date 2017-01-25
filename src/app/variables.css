@@ -8,7 +8,8 @@
     --white: #FFFFFA;
     --gray: #5B605F;
     --darkgray: #2A2C2B;
-    --lightgray: #A1A194;
+    --lightgray: #ddd;
+    --almostwhite: WhiteSmoke;
 
     --serif: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
     --sans: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;

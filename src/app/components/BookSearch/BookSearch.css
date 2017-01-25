@@ -1,7 +1,7 @@
 @import '../../variables.css';
 
 .BookSearch {
-    background-color: var(--lightgrey, LightGrey);
+    background-color: var(--lightgray, #ddd);
     padding: .5em;
     display: flex;
     justify-content: flex-start;
