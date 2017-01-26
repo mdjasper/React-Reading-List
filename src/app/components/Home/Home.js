@@ -14,6 +14,7 @@ const Home = ({
     removeBook
 }) => (
     <div>
+        <h1>React Reading List </h1>
         {greet ? <Greeting name={name} close={greetingAction} /> : ""}
 
         <Recommendations onAdd={onSearch} books={recommendations} />
