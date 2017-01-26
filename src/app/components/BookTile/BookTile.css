@@ -1,9 +1,14 @@
+@import '../../variables.css';
+
 .BookTile {
     display: flex;
     align-items: flex-start;
     flex-flow: row wrap;
     margin: .5em;
     /*min-height: 10rem;*/
+    &:hover {
+        background-color: var(--lightgray);
+    }
 }
 
 .DetailWrapper {

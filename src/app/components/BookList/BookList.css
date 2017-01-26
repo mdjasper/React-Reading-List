@@ -10,9 +10,7 @@
     display: flex;
     flex-flow: column nowrap;
     padding: 0 1em .5em .3em;
-    & > *:hover {
-        background-color: var(--lightgray);
-    }
+
     & > * {
         background-color: var(--almostwhite, WhiteSmoke);
     }
