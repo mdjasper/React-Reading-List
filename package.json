@@ -1,8 +1,18 @@
 {
-  "name": "react-starter",
+  "name": "react-reading-list",
   "version": "1.0.1",
-  "description": "An Isomorphic React Starter",
+  "description": "A reading-list app to demonstrate react and redux",
   "main": "index.js",
+  "repository" : {
+      "type": "git",
+      "url": "https://github.com/mdjasper/React-Reading-List.git"
+  },
+  "contributors": [
+    { "name": "Bruce Campbell" },
+    { "name": "Michael Jasper"},
+    { "name": "Matthew Poulson"}
+  ],
+  "license": "MIT",
   "scripts": {
     "predev": "npm run build",
     "dev": "npm-run-all -p dev:*",
@@ -41,8 +51,6 @@
       }
     }
   },
-  "author": "Jared Anderson",
-  "license": "MIT",
   "devDependencies": {
     "@kadira/storybook": "^1.28.1",
     "autoprefixer": "^6.1.2",
