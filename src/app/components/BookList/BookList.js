@@ -1,5 +1,5 @@
 import styles from './BookList.css';
-import classes from 'classnames';
+import classes from 'join-classnames';
 
 export default ({title, zebra, children, className}) => (
     <div>
