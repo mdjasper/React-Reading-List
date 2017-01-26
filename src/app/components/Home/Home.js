@@ -16,7 +16,7 @@ const Home = ({
     <div>
         {greet ? <Greeting name={name} close={greetingAction} /> : ""}
 
-        <Recommendations books={recommendations} />
+        <Recommendations onAdd={onSearch} books={recommendations} />
         <BookSearch onSearch={onSearch} />
         {
             readingList.length > 0 ?
