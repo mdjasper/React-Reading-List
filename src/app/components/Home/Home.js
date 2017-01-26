@@ -20,7 +20,7 @@ const Home = ({
         <BookSearch onSearch={onSearch} />
         {
             readingList.length > 0 ?
-                <BookList zebra >
+                <BookList>
                     {
                         readingList.map((book, i) =>
                             <BookTile
