@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './Recommendations.css';
 
 const duration = 5;
 
@@ -10,6 +11,7 @@ class recommendation extends React.Component {
             timer: duration
         };
         this.next = this.next.bind(this);
+        this.add = this.add.bind(this);
     }
 
     componentDidMount() {
@@ -34,9 +36,14 @@ class recommendation extends React.Component {
 
     next() {
         this.setState( ({index}) => ({
-            index: index + 1,
+            index: index === this.props.books.length - 1 && this.props.repeat ? 0 : index + 1,
             timer: duration
         }));
+    }
+
+    add() {
+        this.next();
+        this.props.onAdd(this.props.books[this.state.index].title);
     }
 
     tick() {
@@ -51,10 +58,10 @@ class recommendation extends React.Component {
     render() {
         if(this.state.index !== this.props.books.length){
             return(
-                <div>
+                <div className={styles.Recommendation}>
                     <h2>Book Recommendation</h2>
-                    <p>Add {this.props.books[this.state.index].title} to your reading list</p>
-                    <p>Next recommendation in {this.state.timer} seconds or <button onClick={this.next}>Skip</button></p>
+                    <p>Add <span className={styles.link} onClick={this.add}>{this.props.books[this.state.index].title}</span> to your reading list</p>
+                    <p><span onClick={this.next} className={styles.link}>Next</span> recommendation in {this.state.timer} seconds</p>
                 </div>
             )
         } else {

@@ -1,0 +1,11 @@
+@import '../../variables.css';
+
+.Recommendation {
+    displat: flex;
+}
+
+.link {
+    color: var(--blue);
+    text-decoration: underline;
+    cursor: pointer;
+}
