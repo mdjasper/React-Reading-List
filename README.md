@@ -1,5 +1,31 @@
-# React/Redux Project Starter
+# React/Redux Demo Application
 
+This React Reading List was created to demonstrate building a simple but
+realistic react/redux application using the react starter.
+
+## Deploying to Cloudfoundry
+
+# Status
+
+This app has one instance called production that is manually (command line)
+deployed to cloudfoundry. It does not build in Anthill.
+
+See the following files for deployment information...
+* `.cfignore` for files that are not pushed to cloudfoundry
+* `.env` for environment variables that are used when running locally
+* `manifests/*` for deployment and environment properties
+
+Confidential information like usernames and passwords should be set into the
+environment directly in cloudfoundry using either the ui or the cli, and of
+course documented somewhere. It should not be put into source files that end
+up in git.
+
+### Deploy
+1. run `npm run build`
+1. `cf login` to cloudfoundry and set your org and space (ESM, openweb-prod)
+1. run `cf push react-reading-list -f manifests/manifest-prod.yml`
+
+# About the starter
 A project starter for universalmorphic React/Redux apps
 
 

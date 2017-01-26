@@ -1,0 +1,7 @@
+---
+host: readme
+path: ..
+instances: 2
+command: npm start
+memory: 256M
+buildpack: nodejs_buildpack

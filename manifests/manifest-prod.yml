@@ -1,0 +1,15 @@
+---
+inherit: base-manifest.yml
+
+memory: 512M
+instances: 2
+
+applications:
+- name: react-reading-list
+  host: readme
+  domain: app.lds.org
+  env:
+    NODE_ENV: production
+    API_HOST: https://readme.app.lds.org
+    ALLOW_REDUX_DEV_TOOLS: 1
+    GOOGLE_BOOKS_API: https://www.googleapis.com/books/v1
