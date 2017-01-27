@@ -10,7 +10,7 @@ export const addBook = book => ({
 export const removeBook = id => ({
     type: REMOVE_BOOK,
     id
-})
+});
 
 export const search = (query) => dispatch  => {
     return queryBooks(query)

@@ -7,6 +7,7 @@
     justify-content: flex-start;
     flex-flow: row wrap;
     align-items: center;
+    margin-top: 1px;
 }
 
 .Label {
