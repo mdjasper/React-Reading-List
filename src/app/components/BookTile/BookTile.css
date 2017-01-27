@@ -7,7 +7,7 @@
     margin: .5em;
     /*min-height: 10rem;*/
     &:hover {
-        background-color: var(--lightgray);
+        background-color: var(--lightgray, #ddd);
     }
 }
 
@@ -24,7 +24,7 @@
 
 .Author {
     margin-top: 1rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .ImageWrapper {
@@ -32,4 +32,22 @@
     overflow: hidden;
 }
 
-.ButtonWrapper {}
+.Read {
+    height: 1.5em;
+    fill: var(--black, black);
+    margin-right: 1em;
+}
+
+.Unread {
+    height: 1.5em;
+    fill: var(--gray, #5B605F);
+    margin-right: 1em;
+}
+
+.Delete {
+    height: 1.2em;
+}
+
+.Dim {
+    opacity: .3;
+}
