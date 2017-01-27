@@ -5,6 +5,8 @@
     align-items: flex-start;
     flex-flow: row wrap;
     margin: .5em;
+    opacity: 1;
+    transition: opacity .75s, background-color .5s;
     /*min-height: 10rem;*/
     &:hover {
         background-color: var(--lightgray, #ddd);
@@ -50,4 +52,5 @@
 
 .Dim {
     opacity: .3;
+    transition: opacity .75s;
 }
