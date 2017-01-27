@@ -2,9 +2,10 @@ import { Component } from 'react';
 import Helmet from 'react-helmet';
 import Home from '../components/Home';
 import { connect } from 'react-redux';
-import hideGreeting from '../actions/greeting.js';
-import { search, removeBook } from '../actions/bookSearch.js';
-import { getRecommendations } from '../actions/recommendations.js';
+import hideGreeting from '../actions/greeting';
+import { toggleRead } from '../actions/book';
+import { search, removeBook } from '../actions/bookSearch';
+import { getRecommendations } from '../actions/recommendations';
 import {
     selectOrderedBooks,
     selectGreetingVisible,
@@ -22,7 +23,8 @@ const bindActionsToDispatch = (dispatch) => ({
     greetingAction: () => dispatch(hideGreeting()),
     onLoad: () => dispatch(getRecommendations()),
     onSearch: (q) => dispatch(search(q)),
-    removeBook: (id) => dispatch(removeBook(id))
+    removeBook: (id) => dispatch(removeBook(id)),
+    toggleRead: (id) => dispatch(toggleRead(id))
 });
 
 const mergeAllProps = (state, actions) => ({

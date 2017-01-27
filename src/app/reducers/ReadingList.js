@@ -3,6 +3,7 @@ import { combineReducers } from 'redux';
 // action constants
 export const ADD_BOOK = 'ADD_BOOK';
 export const REMOVE_BOOK = 'REMOVE_BOOK';
+export const TOGGLE_READ = 'TOGGLE_READ';
 
 // reducers
 const books = (state = {}, action) => {
@@ -19,6 +20,14 @@ const books = (state = {}, action) => {
             var copy = Object.assign({}, state);
             delete (copy)[action.id];
             return copy;
+        case TOGGLE_READ:
+            return {
+                ...state,
+                [action.id]: {
+                    ...state[action.id],
+                    read: !state[action.id].read
+                }
+            }
         default:
             return state;
     }
@@ -32,7 +41,7 @@ const order = (state = [], action) => {
             }
             return [
                 action.book.id,
-                ... state
+                ...state
             ]
         case REMOVE_BOOK:
             return state.filter((id) => action.id !== id )

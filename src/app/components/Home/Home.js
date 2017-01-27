@@ -11,7 +11,8 @@ const Home = ({
     recommendations,
     readingList,
     onSearch,
-    removeBook
+    removeBook,
+    toggleRead
 }) => (
     <div>
         <h1>React Reading List </h1>
@@ -30,6 +31,8 @@ const Home = ({
                                 title={book.volumeInfo.title}
                                 id={book.id}
                                 coverImgUrl={book.thumbnailUrl}
+                                read={book.read}
+                                toggleRead={() => toggleRead(book.id)}
                                 remove={() => removeBook(book.id)}
                             />
                         )
