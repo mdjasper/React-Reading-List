@@ -1,5 +1,5 @@
 import { search as queryBooks } from '../services/bookSearch.js';
-import { ADD_BOOK, REMOVE_BOOK } from '../reducers/readingList.js';
+import { ADD_BOOK, REMOVE_BOOK } from '../reducers/ReadingList.js';
 
 // action creator
 export const addBook = book => ({

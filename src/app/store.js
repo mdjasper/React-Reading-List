@@ -1,7 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import isBrowser from 'is-in-browser';
-import readingList, * as fromReadingList from './reducers/readingList.js';
+import readingList, * as fromReadingList from './reducers/ReadingList.js';
 import greeting, * as fromGreeting from './reducers/greeting.js';
 import recommendations, * as fromRecommendations from './reducers/recommendations.js';
 
