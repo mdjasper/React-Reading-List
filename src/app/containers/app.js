@@ -1,8 +1,8 @@
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 import AppLayout from '../components/AppLayout';
-import mountLoad from '../hocs/mount-load';
-import { wrap } from '../hocs/ss-resolve';
-import {selectSiteNav} from '../store.js';
+// import mountLoad from '../hocs/mount-load';
+// import { wrap } from '../hocs/ss-resolve';
+// import {selectSiteNav} from '../store.js';
 
 
 // Inject Async Data Loading...
@@ -22,10 +22,10 @@ import {selectSiteNav} from '../store.js';
 // https://github.com/reactjs/react-redux/blob/master/docs/api.md
 
 // argument 1 of react-redux `connect` maps store data to props
-const mapStateToProps = (state) => ({});
+// const mapStateToProps = (state) => ({});
 
 // argument 2 of react-redux `connect` maps actions to dispatch to props
-const mapDispatchToProps = (dispatch) => ({});
+// const mapDispatchToProps = (dispatch) => ({});
 
 // arg 3 lets you define how the props from
 // mapStateToProps, mapDispatchToProps and incoming from react-router are merged
@@ -46,4 +46,5 @@ const mergeProps = (state, actions, own) => ({
 
 
 // Export the resulting component...
-export default connect(mapStateToProps, mapDispatchToProps)( AppLayout );
+// export default connect(mapStateToProps, mapDispatchToProps)( AppLayout );
+export default AppLayout;
