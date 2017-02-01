@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Recommendations.css';
 
-const duration = 5;
+const duration = 9;
 
 class recommendation extends React.Component {
     constructor(props) {
