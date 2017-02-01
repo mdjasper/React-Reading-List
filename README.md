@@ -23,7 +23,7 @@ up in git.
 ### Deploy
 1. run `npm run build`
 1. `cf login` to cloudfoundry and set your org and space (ESM, openweb-prod)
-1. run `cf push react-reading-list -f manifests/manifest-prod.yml`
+1. run `npm run deploy:prod`
 
 # About the starter
 A project starter for universalmorphic React/Redux apps

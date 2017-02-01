@@ -25,7 +25,8 @@
     "build:client": "better-npm-run build:client",
     "build:server": "better-npm-run build:server",
     "dev:client": "better-npm-run dev:client",
-    "dev:server": "better-npm-run dev:server"
+    "dev:server": "better-npm-run dev:server",
+    "deploy:prod": "better-npm-run deploy:prod"
   },
   "betterScripts": {
     "dev:client": {
@@ -51,6 +52,9 @@
       "env": {
         "NODE_ENV": "production"
       }
+    },
+    "deploy:prod": {
+      "command": "cf push react-reading-list -f manifests/manifest-prod.yml"
     }
   },
   "devDependencies": {
